@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Kanban Board</title>
+    <link rel="stylesheet" href="style.css?v=1719734400000">
+</head>
+<body>
+    <div class="header">
+        <div id="current-date" class="current-date"></div>
+        <button id="dark-mode-toggle" class="dark-mode-toggle">ダークモード切替</button>
+    </div>
+
+    <div class="filter-section">
+        <label for="due-date-filter">期限でフィルタ:</label>
+        <input type="date" id="due-date-filter">
+    </div>
+
+    <div class="kanban-board">
+        <div class="column" id="todo-column">
+            <h2>Todo</h2>
+            <div class="task-list" id="todo-list"></div>
+            <input type="text" class="new-task-input" placeholder="新しいタスクを追加">
+            <button class="add-task-button">タスクを追加</button>
+        </div>
+        <div class="column" id="done-column">
+            <h2>Done</h2>
+            <div class="task-list" id="done-list"></div>
+        </div>
+        <div class="column" id="archived-column">
+            <h2>Archived</h2>
+            <div class="task-list" id="archived-list"></div>
+        </div>
+    </div>
+
+    <!-- Task Detail Modal -->
+    <div id="task-detail-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>タスク詳細</h3>
+            <label for="modal-task-text">タスク名:</label>
+            <input type="text" id="modal-task-text" readonly>
+
+            <label>サブタスク:</label>
+            <div class="subtask-input-group">
+                <input type="text" id="new-subtask-input" placeholder="新しいサブタスク">
+                <button id="add-subtask-button">追加</button>
+            </div>
+            <div id="subtasks-list" class="subtasks-list"></div>
+
+            <label for="modal-due-date">期限:</label>
+            <input type="date" id="modal-due-date">
+
+            <label for="modal-labels">ラベル (カンマ区切り):</label>
+            <input type="text" id="modal-labels">
+
+            <label for="modal-importance">重要度:</label>
+            <select id="modal-importance">
+                <option value="low">低</option>
+                <option value="medium">中</option>
+                <option value="high">高</option>
+            </select>
+
+            <div class="modal-buttons">
+                <button class="save-button" id="save-task-details">保存</button>
+                <button class="cancel-button" id="cancel-task-details">キャンセル</button>
+                <button class="delete-button" id="delete-task-from-modal">タスクを削除</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=1719734400000"></script>
+</body>
+</html>
